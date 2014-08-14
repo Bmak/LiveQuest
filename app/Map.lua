@@ -2,6 +2,7 @@ local composer = require( "composer" )
 local widget = require("widget")
 
 local Map = {}
+local myMap = nil
 
 function Map:new()
 	local params = {
@@ -35,7 +36,7 @@ if ( system.getInfo( "environment" ) == "simulator" ) then
     label.anchorY = 0
 end
 
-local myMap = native.newMapView( 20, 20, 550, 900 )
+myMap = native.newMapView( 20, 20, 550, 900 )
 
 if ( myMap ) then
     -- Display a normal map with vector drawings of the streets.
@@ -128,12 +129,12 @@ local button = widget.newButton
 button.x = display.contentCenterX
 button.y = 30
 
-local result, errorMessage = myMap:addMarker( 37.331692, -122.030456, options )
-if ( result ) then
-    print( "everything went well" )
-else
-    print( errorMessage )
-end
+-- local result, errorMessage = myMap:addMarker( 37.331692, -122.030456, options )
+-- if ( result ) then
+--     print( "everything went well" )
+-- else
+--     print( errorMessage )
+-- end
 
 
 return Map
